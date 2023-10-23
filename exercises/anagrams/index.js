@@ -9,21 +9,27 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-  let objA = buildCharMap(stringA);
-  let objB = buildCharMap(stringB);
+  // let objA = buildCharMap(stringA);
+  // let objB = buildCharMap(stringB);
 
-  if (Object.keys(objA).length !== Object.keys(objB).length) {
-    return false;
-  }
+  // if (Object.keys(objA).length !== Object.keys(objB).length) {
+  //   return false;
+  // }
 
-  for (let property in objA) {
-    if (objA[property] !== objB[property]) {
-      return false;
-    }
-  }
+  // for (let property in objA) {
+  //   if (objA[property] !== objB[property]) {
+  //     return false;
+  //   }
+  // }
 
-  return true;
+  // return true;
+
+  return cleanString(stringA) === cleanString(stringB);
 }
+
+const cleanString = (str) => {
+  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
+};
 
 //helper function
 const buildCharMap = (string) => {
